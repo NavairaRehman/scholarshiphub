@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('guidelines', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('scholarship_id')->constrained()->onDelete('cascade');
+            $table->text('description'); 
+            $table->text('required_docs'); 
             $table->timestamps();
         });
     }
