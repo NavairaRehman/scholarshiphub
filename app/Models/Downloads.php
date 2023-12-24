@@ -8,4 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Downloads extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'scholarship_id',
+        'name',
+        'link',
+    ];
+
+    // Define the relationship
+    public function scholarship()
+    {
+        return $this->belongsTo(Scholarship::class);
+    }
 }
