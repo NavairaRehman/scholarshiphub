@@ -18,7 +18,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <!-- Logo on the left -->
-                <a class="navbar-brand" href="#">Your Logo</a>
+                <a class="navbar-brand" href="#"><img src="{{ asset('images/logo-middle.jpg') }}" alt=""></a>
 
                 <div class="collapse navbar-collapse" id="navbarTop">
                     <ul class="navbar-nav ms-auto ul-">
