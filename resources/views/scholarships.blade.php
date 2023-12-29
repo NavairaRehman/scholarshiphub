@@ -1,4 +1,3 @@
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -83,10 +82,10 @@
             <!-- Dropdown for selecting countries -->
             <div class="mb-3">
                 <!--<label for="countryFilter" class="form-label">Filter by Country:</label>-->
-                <select class="form-select btn btn-secondary btn-lg bg-danger" style = "width:50%" id="countryFilter">
+                <select class="form-select btn btn-secondary btn-lg bg-danger" style="width:50%" id="countryFilter">
                     <option value="">Select Country</option>
                     @foreach($countries as $country)
-                        <option value="{{ $country->id }}">{{ $country->name }}</option>
+                    <option value="{{ $country->id }}">{{ $country->name }}</option>
                     @endforeach
                 </select>
             </div>
@@ -107,17 +106,24 @@
             </div>
             <!-- Display scholarships based on filter or all -->
             @foreach($scholarships as $scholarship)
-                <div class="card mb-3 scholarship-item" data-country="{{ $scholarship->country->id }}" data-category="{{ $scholarship->category->id }}">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ $scholarship->name }}</h5>
-                        <p class="card-text">Eligibility Age: {{ $scholarship->eligibility_age }}</p>
-                        <p class="card-text">Qualification: {{ $scholarship->qualification }}</p>
-                        <p class="card-text">Website: <a href="{{ $scholarship->website_link }}" target="_blank">{{ $scholarship->website_link }}</a></p>
-                        <p class="card-text">Country: {{ $scholarship->country->name }}</p>
-                        <p class="card-text">Category: {{ $scholarship->category->name }}</p>
-                        <p class="card-text">Deadline: {{ $scholarship->deadline }}</p>
-                    </div>
+            <div class="card mb-3 scholarship-item" data-country="{{ $scholarship->country->id }}" data-category="{{ $scholarship->category->id }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ $scholarship->name }}</h5>
+                    <p class="card-text">Eligibility Age: {{ $scholarship->eligibility_age }}</p>
+                    <p class="card-text">Qualification: {{ $scholarship->qualification }}</p>
+                    <p class="card-text">Website: <a href="{{ $scholarship->website_link }}" target="_blank">{{ $scholarship->website_link }}</a></p>
+                    <p class="card-text">Country: {{ $scholarship->country->name }}</p>
+                    <p class="card-text">Category: {{ $scholarship->category->name }}</p>
+                    <p class="card-text">Deadline: {{ $scholarship->deadline }}</p>
+                    @auth
+                    <form action="{{ route('addToFavorites') }}" method="post">
+                        @csrf
+                        <input type="hidden" name="scholarship_id" value="{{ $scholarship->id }}">
+                        <button type="submit" class="btn btn-primary">Add to Favorites</button>
+                    </form>
+                    @endauth
                 </div>
+            </div>
             @endforeach
         </div>
     </div>
@@ -125,7 +131,7 @@
     <script>
         // Add event listener to the country filter dropdown
         document.getElementById('countryFilter').addEventListener('change', filterScholarships);
-        
+
         // Add event listeners to the merit and need checkboxes
         document.getElementById('meritFilter').addEventListener('change', filterScholarships);
         document.getElementById('needFilter').addEventListener('change', filterScholarships);

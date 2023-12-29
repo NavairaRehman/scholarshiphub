@@ -41,6 +41,7 @@ Route::get('/scholarships', [ScholarshipController::class, 'index'])->name('scho
 Route::middleware(['auth'])->group(function () {
     // Routes for authenticated users
     Route::get('/favorites', [FavoriteController::class, 'index'])->name('favorites');
+    Route::post('/favorites/add', [FavoriteController::class, 'addToFavorites'])->name('addToFavorites');
     
 });
 
