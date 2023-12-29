@@ -21,29 +21,32 @@
                     </ul>
                 </div>
                 @auth
-                    <a href="{{ route('favorites') }}"><i class="fa fa-star"></i></a>
+                    <a href="{{ route('favorites') }}" class="btn btn-warning"><i class="fa fa-star"></i> Favorites</a>
                 @else
-                    <a href="{{ route('login') }}">Login</a> / <a href="{{ route('register') }}">Register</a>
+                    <a href="{{ route('login') }}" class="btn btn-primary">Login</a> 
+                    <a href="{{ route('register') }}" class="btn btn-success">Register</a>
                 @endauth
             </div>
         </nav>
 
         <!-- Welcome Section -->
-        <div class="welcome-section">
-            <img src="{{ asset('images/welcome-image.jpg') }}" alt="Welcome Image">
-            <h2>Want to take your scholarship to the next level?</h2>
-            <form action="{{ route('search') }}" method="get">
-                <input type="text" name="query" placeholder="Search for scholarships...">
-                <button type="submit">Search</button>
+        <div class="welcome-section mt-5">
+            <img src="{{ asset('images/welcome-image.jpg') }}" alt="Welcome Image" class="img-fluid rounded">
+            <h2 class="mt-3">Want to take your scholarship to the next level?</h2>
+            <form action="{{ route('search') }}" method="get" class="mt-3">
+                <div class="input-group">
+                    <input type="text" name="query" class="form-control" placeholder="Search for scholarships...">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </div>
             </form>
         </div>
 
         <!-- Countries Section -->
-        <div class="countries-section">
+        <div class="countries-section mt-5">
             <h3>Explore Scholarships by Country</h3>
-            <ul>
+            <ul class="list-group">
                 @foreach($countries as $country)
-                    <li><a href="{{ route('country', $country->id) }}">{{ $country->name }}</a></li>
+                    <li class="list-group-item"><a href="{{ route('country', $country->id) }}">{{ $country->name }}</a></li>
                 @endforeach
             </ul>
         </div>
