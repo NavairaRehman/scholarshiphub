@@ -43,6 +43,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/favorites', [FavoriteController::class, 'index'])->name('favorites');
     Route::post('/favorites/add', [FavoriteController::class, 'addToFavorites'])->name('addToFavorites');
     
+    
 });
 
 Route::get('/downloads', [DownloadController::class, 'index'])->name('downloads');
