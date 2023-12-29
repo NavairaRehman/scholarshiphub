@@ -36,9 +36,9 @@
                     <!-- Country dropdown menu (static example, populate dynamically with real country data) -->
                     <select class="form-select" aria-label="Country selector">
                         <option selected>Select Country</option>
-                        <option value="1">Country 1</option>
-                        <option value="2">Country 2</option>
-                        <option value="3">Country 3</option>
+                        @foreach($countries as $country)
+                        <option value="1"><a href="{{ route('country', $country->id) }}">{{ $country->name }}</a></option>
+                        @endforeach
                     </select>
                 </ul>
 
