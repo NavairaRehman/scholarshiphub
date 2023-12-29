@@ -25,6 +25,9 @@
                         <li class="nav-item bg-primary px-4 rounded-pill me-2">
                             <a class="nav-link text-light" href="{{ route('favorites') }}">Favorites</a>
                         </li>
+                        <li class="nav-item bg-primary px-4 rounded-pill me-2">
+                            <a class="nav-link text-light" href="{{ route('logout') }}">logout</a>
+                        </li>
                         @else
                         <!-- Login/Register if not authenticated -->
                         <li class="nav-item bg-primary px-4 rounded-pill me-2">

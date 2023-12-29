@@ -1,9 +1,9 @@
-<!-- resources/views/welcome.blade.php -->
+<!-- downloads.blade.php -->
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Your Scholarship Hub</title>
+    <title>Scholarship Hub | Downloads</title>
 
     <!-- Bootstrap CSS (CDN) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
@@ -48,7 +48,7 @@
         <!-- Navbar (Main) -->
         <nav class="navbar navbar-expand-lg navbar-light bg-danger">
             <div class="container-fluid">
-                <div class="collapse navbar-collapse " id="navbarMain">
+                <div class="collapse navbar-collapse" id="navbarMain">
                     <ul class="navbar-nav">
                         <li class="nav-item me-5">
                             <a class="nav-link text-white" href="{{ route('home') }}">Home</a>
@@ -64,30 +64,19 @@
             </div>
         </nav>
 
-        <!-- Welcome Section -->
-        <div class="welcome-section mt-5 position-relative">
-            <img src="{{ asset('images/welcome-image.jpg') }}" alt="Welcome Image" class="img-fluid rounded">
+        <!-- Downloads Section -->
+        <div class="downloads-section mt-5">
+            <h2>Downloads</h2>
 
-            <div class="text-overlay" style="position:absolute; top:40%; left:0%; transform: translate(-50,-50);text-align:center; width:100%">
-                <h2 class="mt-3" style='font-size:3rem; color: white;'>Want to take your studies to the next level?</h2>
-                <h1 class="mt-3" style='font-size:2rem; color: white;'>lets look at some scholarships</h1>
-            </div>
-            <form action="{{ route('search') }}" method="get" class="mt-3">
-                <div class="input-group">
-                    <input type="text" name="query" class="form-control" placeholder="Search by Country...">
-                    <button type="submit" class="btn btn-primary">Search</button>
+            @foreach($downloads as $download)
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">{{ $download->name }}</h5>
+                    <p class="card-text">Link: <a href="{{ $download->link }}" target="_blank">{{ $download->link }}</a></p>
                 </div>
-            </form>
-        </div>
-
-        <!-- Countries Section -->
-        <div class="countries-section mt-5">
-            <h3>Explore Scholarships by Country</h3>
-            <ul class="list-group">
-                @foreach($countries as $country)
-                <li class="list-group-item"><a href="{{ route('country', $country->id) }}">{{ $country->name }}</a></li>
-                @endforeach
-            </ul>
+            </div>
+            @endforeach
         </div>
     </div>
+
 </body>
