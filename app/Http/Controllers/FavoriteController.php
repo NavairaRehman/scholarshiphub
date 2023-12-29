@@ -11,7 +11,7 @@ class FavoriteController extends Controller
     public function index()
     {
         $userFavorites = auth()->user()->favorites;
-        return view('favorites.index', compact('userFavorites'));
+        return view('favorites', compact('userFavorites'));
     }
     public function addToFavorites(Request $request)
     {
