@@ -1,8 +1,8 @@
 <!-- resources/views/country/show.blade.php -->
-@extends('layouts.app')
+@extends('scholarships')
 
 @section('content')
-    <div class="container">
+    <div class="card mb-3 scholarship-item">
         <h2>Scholarships in {{ $country->name }}</h2>
         @foreach($scholarships as $scholarship)
             <div class="scholarship">

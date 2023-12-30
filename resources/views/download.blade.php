@@ -64,6 +64,22 @@
             </div>
         </nav>
 
+         <!-- Welcome Section -->
+         <div class="welcome-section mt-5 position-relative">
+            <img src="{{ asset('images/welcome-image.jpg') }}" alt="Welcome Image" class="img-fluid rounded">
+
+            <div class="text-overlay" style="position:absolute; top:40%; left:0%; transform: translate(-50,-50);text-align:center; width:100%">
+                <h2 class="mt-3" style='font-size:3rem; color: white;'>Want to take your studies to the next level?</h2>
+                <h1 class="mt-3" style='font-size:2rem; color: white;'>lets look at some scholarships</h1>
+            </div>
+            <form action="{{ route('search') }}" method="get" class="mt-3">
+                <div class="input-group">
+                    <input type="text" name="query" class="form-control" placeholder="Search by Country...">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </div>
+            </form>
+        </div>
+
         <!-- Downloads Section -->
         <div class="downloads-section mt-5">
             <h2>Downloads</h2>
