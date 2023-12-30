@@ -8,9 +8,9 @@ class CountryController extends Controller
 {
     public function show($id)
     {
-        $country = Country::find($id);
+        $country = Country::all($id);
         $scholarships = $country->scholarships; // Assuming a relationship exists
 
-        return view('country.show', compact('country', 'scholarships'));
+        return view('scholarships', compact('country', 'scholarships'));
     }
 }

@@ -13,7 +13,7 @@
 
 <body>
 
-    <div class="container">
+    <div class="container-fluid px-0 mx-3">
         <!-- Navbar (Top) -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
