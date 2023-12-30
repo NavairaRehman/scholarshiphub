@@ -5,12 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Favorites;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use App\Models\User;
 class FavoriteController extends Controller
 {
     public function index()
     {
-        $userFavorites = auth()->user()->favorites;
+        $userFavorites = Favorites::where('user_id', auth()->id())->get();
         return view('favorites', compact('userFavorites'));
     }
     public function addToFavorites(Request $request)
