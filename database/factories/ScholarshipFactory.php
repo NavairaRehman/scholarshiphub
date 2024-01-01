@@ -39,7 +39,7 @@ class ScholarshipFactory extends Factory
             'start_date' => $this->faker->date,
             'deadline' => $this->faker->date,
             'web_link' => $this->faker->url,
-            'country_id' => Country::factory(),
+            'country_id' => $this->faker->numberBetween(1,4),
             'category_id' => function () use ($categoryData) {
                 // Randomly choose a category from the CategorySeeder data
                 return Category::firstOrCreate($categoryData[array_rand($categoryData)])['id'];

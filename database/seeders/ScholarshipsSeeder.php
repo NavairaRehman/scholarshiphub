@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
 use App\Models\Country; // Add this line
+use Illuminate\Support\Facades\DB;
 
 class ScholarshipsSeeder extends Seeder
 {
@@ -20,7 +21,7 @@ class ScholarshipsSeeder extends Seeder
             // Retrieve valid country IDs from the countries table
             $countryIds = Country::pluck('id')->toArray();
 
-            \DB::table('scholarships')->insert([
+            DB::table('scholarships')->insert([
                 'name' => $faker->sentence,
                 'eligibility_age' => $faker->numberBetween(18, 30),
                 'qualification' => $faker->sentence,
