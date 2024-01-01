@@ -87,7 +87,11 @@
             <h3>Explore Scholarships by Country</h3>
             <ul class="list-group">
                 @foreach($countries as $country)
-                <li class="list-group-item"><a href="{{ route('country', $country->id) }}">{{ $country->name }}</a></li>
+                <li class="list-group-item">
+                    <a href="{{ route('country', $country->id) }}" class="text-decoration-none d-flex justify-content-between align-items-center">
+                        <span class="badge bg-primary rounded-pill fs-4">{{ $country->name }}</span>
+                    </a>
+                </li>
                 @endforeach
             </ul>
         </div>
