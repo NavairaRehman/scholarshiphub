@@ -42,7 +42,7 @@ Route::middleware(['auth'])->group(function () {
     // Routes for authenticated users
     Route::get('/favorites', [FavoriteController::class, 'index'])->name('favorites');
     Route::post('/favorites/add', [FavoriteController::class, 'addToFavorites'])->name('addToFavorites');
-    
+    Route::post('favorite/remove',[FavoriteController::class,'removeFromFavorites'])->name('removeFromFavorites');
     
 });
 
@@ -52,5 +52,6 @@ Route::get('/guidelines',[GuidelineController::class, 'index'])->name('guideline
 Route::get('/search', [SearchController::class, 'index'])->name('search');
 
 Route::get('/country/{id}', [CountryController::class, 'show'])->name('country');
+Route::get('/downloads/search',[DownloadController::class,'search'])->name('searchdownloads');
 
 require __DIR__.'/auth.php';

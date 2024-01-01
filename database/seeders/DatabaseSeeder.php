@@ -26,8 +26,6 @@ class DatabaseSeeder extends Seeder
         //Call the UserFactory to seed the 'users' table
         \App\Models\User::factory(10)->create(); 
         
-        //Call the ScholarshipFactory to seed the 'scholarships' table
-        
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',

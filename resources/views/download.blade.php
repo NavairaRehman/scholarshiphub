@@ -72,9 +72,9 @@
                 <h2 class="mt-3" style='font-size:3rem; color: white;'>Want to take your studies to the next level?</h2>
                 <h1 class="mt-3" style='font-size:2rem; color: white;'>lets look at some scholarships</h1>
             </div>
-            <form action="{{ route('search') }}" method="get" class="mt-3">
+            <form action="{{ route('searchdownloads') }}" method="get" class="mt-3">
                 <div class="input-group">
-                    <input type="text" name="query" class="form-control" placeholder="Search by Country...">
+                    <input type="text" name="query" class="form-control" placeholder="Search for downloads...">
                     <button type="submit" class="btn btn-primary">Search</button>
                 </div>
             </form>

@@ -93,7 +93,7 @@
                 </select>
             </div>
             <!--Check box filter-->
-            <div class="mb-3" style="position:absolute; top:135% ;left:70%">
+            <div class="mb-3" style="position:relative; top:155% ;left:70%">
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="meritFilter">
                     <label class="form-check-label" for="meritFilter">
